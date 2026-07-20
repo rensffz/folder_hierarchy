@@ -74,7 +74,7 @@ docker-compose exec -T "$SERVICE_NAME" psql -U "$POSTGRES_USER" -d "$POSTGRES_DB
 test_exit_code=$?
 echo "----------------------------------------"
 
-docker-compose exec -T db psql -U testuser -d files_db -f /docker-entrypoint-initdb.d/test.sql
+docker-compose exec -T "$SERVICE_NAME" psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -f /docker-entrypoint-initdb.d/test.sql
 
 echo ""
 echo -e "${YELLOW}=== ИНФРАСТРУКТУРА ГОТОВА ===${NC}"
